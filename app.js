@@ -1,3 +1,4 @@
+const http = require('http');
 const express = require('express');
 const path = require('path');
 const Waterline = require('waterline');
@@ -9,6 +10,9 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 
 const app = express();
+const server = http.createServer(app);
+
+const PORT = process.env.PORT || 3000;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', req.get('origin'));
@@ -71,7 +75,7 @@ waterline.initialize(config, (err, models) => {
 
   app.models = models.collections;
   app.connections = models.connections;
-  console.log('App running on port: 3000');
+  server.listen(PORT, () => {
+    console.log('Server listening on port ', PORT);
+  });
 });
-
-module.exports = app;

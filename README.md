@@ -14,4 +14,5 @@
 
 #### Usage
 
-* `npm start` or simply `nodemon` in your root dir - runs the server
+* `npm start` runs the server
+* `npm run dev` runs the server in development mode using `gulp`

@@ -43,6 +43,13 @@ module.exports = (Waterline) => {
           return new Date();
         },
       },
+      toJSON: function() {
+        const obj = this.toObject();
+
+        //strip out password in JSON response
+        delete obj.password;
+        return obj;
+      }
     },
   });
 
