@@ -47,7 +47,7 @@ module.exports = app => {
             const password_hash = bcrypt.hashSync(password, 10);
             app.models.users
               .create({
-                userId: uuid.v4(),
+                id: uuid.v4(),
                 email,
                 password: password_hash,
                 accountType: accountType,
