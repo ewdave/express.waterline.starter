@@ -11,7 +11,7 @@ module.exports = (Waterline) => {
     autoUpdatedAt: false,
 
     attributes: {
-      userId: {
+      id: {
         type: 'string',
         primaryKey: true,
         columnName: 'id'
